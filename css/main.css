@@ -23,8 +23,21 @@ html {
 
 /* navbar */
 .navbar-custom {
-    background-color: #174674;
-    border-color: #174674;
+    /*background-color: #174674;*/
+    /* Firefox v3.6+ */
+background-image:-moz-linear-gradient(14% 41% 0deg,rgba(23,70,116,0.1) 0%,rgb(23,70,116) 100%); 
+/* safari v4.0+ and by Chrome v3.0+ */
+background-image:-webkit-gradient(linear,14% 41%,99% 41%,color-stop(0, rgba(23,70,116,0.1)),color-stop(1, rgb(23,70,116)));
+/* Chrome v10.0+ and by safari nightly build*/
+background-image:-webkit-linear-gradient(0deg,rgba(23,70,116,0.1) 0%,rgb(23,70,116) 100%);
+/* Opera v11.10+ */
+background-image:-o-linear-gradient(0deg,rgba(23,70,116,0.1) 0%,rgb(23,70,116) 100%);
+/* IE v10+ */
+background-image:-ms-linear-gradient(0deg,rgba(23,70,116,0.1) 0%,rgb(23,70,116) 100%);
+background-image:linear-gradient(90deg,rgba(23,70,116,0.1) 0%,rgb(23,70,116) 100%);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#19174674,endColorstr=#ff174674,GradientType=1)";
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19174674,endColorstr=#ff174674,GradientType=1);
+
 }
 /* title */
 .navbar-custom .navbar-brand {
