@@ -1,36 +1,10 @@
+	
+		<div class="footer">
+			&copy; Copyright 2014 - Into the Box - All Rights Reserved
+		</div>	
+	
 	</div> <!-- /container -->
 
-	
-	
-<style>
-	
-	.status_holder {
-		margin:5px;
-		padding:10px;
-		border:1px solid #aaaaaa;
-		background-color:#bbbbbb;
-	}
-	.status_mod {
-		background-color:#ddddff;
-	}
-	.status_message {
-		font-size:15px;
-		font-weight:normal;
-		color:#000066;
-	}
-	.status_author {
-		padding-top:5px;
-		font-size:12px;
-		font-style:italic;
-	}
-	
-	
-	textarea.status {
-		width:100%;
-		height:50px;
-	}
-
-</style>
 	
 	
     <!-- Bootstrap core JavaScript

@@ -4,7 +4,6 @@
 
 <!--- View Code --->
 <cfinclude template="layouts/inc_header.cfm">
-
 <h1>All of time and space, everything that ever happened or ever will - where do you want to start?</h1>
 
 <div class="row">

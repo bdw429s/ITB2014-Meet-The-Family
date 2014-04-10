@@ -18,6 +18,9 @@
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
 
+	<link href="css/main.css" rel="stylesheet">
+
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -27,8 +30,12 @@
 
   <body role="document">
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div id="logo_holder" class="container">
+		<a href="/" title="Who's Who - Social Media for Whovians"><img src="img/logo.png" border="0" alt="Who's Who - Social Media for Whovians"></a>
+	</div>	
+
+     
+    <div class="navbar navbar-custom" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Who's Who - Social Media for Whovians</a>
+          <!---<a class="navbar-brand" href="#">Who's Who - Social Media for Whovians</a>--->
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -53,8 +60,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
-    <div class="container theme-showcase" role="main" style="padding-top:70px;">
+	
+    <div class="bodycontainer container theme-showcase" role="main">
     
     	<cfif structKeyExists(session, "flash")>
 			<div <cfif session.flash.code>class="alert alert-success"<cfelse>class="alert alert-danger"</cfif>>
