@@ -31,7 +31,7 @@
   <body role="document">
 
 	<div id="logo_holder" class="container">
-		<a href="/" title="Who's Who - Social Media for Whovians"><img src="img/logo.png" border="0" alt="Who's Who - Social Media for Whovians"></a>
+		<a href="/" title="Who's Who - Social Network for Whovians"><img src="img/logo.png" border="0" alt="Who's Who - Social Network for Whovians"></a>
 	</div>	
 
      
@@ -50,6 +50,7 @@
           <ul class="nav navbar-nav navbar-right">
           	<li><a href="/">Home</a></li>
             <cfif structKeyExists(session, "user")>
+            	<li><a href="dsp_members.cfm">Members</a></li>
             	<li><a href="dsp_myaccount.cfm">My Account</a></li>
             	<li><a href="act_logout.cfm">Log-out</a></li>
             <cfelse>

@@ -30,10 +30,15 @@
 <h2>Whats going on in Time and Space</h2>
 <cfloop query="qStatuses">
 	<div class="status_holder <cfif qStatuses.currentrow mod 2>status_mod</cfif>" >
-		<div class="status_message">
-			#qStatuses.message#
-		</div>	
-		<div class="status_author">Shared by <a href="dsp_profile.cfm?userid=#qStatuses.userid#">#qStatuses.firstName# #qStatuses.lastName#</a> at #timeformat( qStatuses.createdat, "hh:mm tt")# on #dateformat( qStatuses.createdat, "mm/dd/yyyy")#</div> 
+		<div class="profile_thumb">
+			<a href="dsp_profile.cfm?userid=#qStatuses.userid#" title="#qStatuses.firstName# #qStatuses.lastName#"><img src="img/profiles/#qStatuses.photo#" width="100" border="0" alt="#qStatuses.firstName# #qStatuses.lastName#'s Profile Photo">
+		</div>
+		<div class="status_message_holder">
+			<div class="status_message">
+				#qStatuses.message#
+			</div>	
+			<div class="status_author">Shared by <a href="dsp_profile.cfm?userid=#qStatuses.userid#">#qStatuses.firstName# #qStatuses.lastName#</a> at #timeformat( qStatuses.createdat, "hh:mm tt")# on #dateformat( qStatuses.createdat, "mm/dd/yyyy")#</div>
+		</div> 
 	</div>
 </cfloop>	
 

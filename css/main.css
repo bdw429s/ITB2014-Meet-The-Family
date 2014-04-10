@@ -16,6 +16,17 @@ html {
 
 }
 
+a:link, a:visited {
+	color: #174674;
+}
+a:active {
+	color: #174674;
+}
+a:hover {
+	color:#ffffff;
+	background-color:#174674;
+}
+
 #logo_holder {
 	text-align:right;
 }
@@ -118,10 +129,35 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19174674,endCol
 
 .status_holder {
 		margin:0px;
+		margin-bottom:5px;
 		padding:10px;
 		border:1px solid #174674;
 		background-color:#bbbbbb;
+		clear:both;
+		overflow:hidden;
 	}
+	
+	.profile_thumb {
+		float:left;
+		padding:0px 10px 0px 0px;
+	}
+	
+	.profile_holder {
+		clear:both;
+		overflow:hidden;
+	}
+	
+	.profile_fullsize {
+		width:300px;
+		float:left;
+		padding:20px 20px 20px 0px;
+	}
+	
+	.profile_details {
+		float:left;
+		padding-left:20px;
+	}
+	
 	.status_mod {
 		background-color:#ddddff;
 	}

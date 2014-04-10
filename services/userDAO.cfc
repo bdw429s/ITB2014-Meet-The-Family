@@ -5,7 +5,7 @@
 	</cffunction>
 	
 	<cffunction name="getUser" returntype="query">
-		<cfargument name="userid" required="false" type="numeric" default="">
+		<cfargument name="userid" required="false" type="numeric" default="-1">
 		<cfargument name="email" required="false" type="string" default="">
 		<cfargument name="detail" required="false" type="string" default="normal">
 		
@@ -25,12 +25,13 @@
 			<cfif arguments.detail eq "full">
 			,about
 			</cfif>
+			,photo
 			,createdat
 			,deletedat
 			
 			from users
 			where 1=1
-			<cfif arguments.userid gt "">
+			<cfif arguments.userid gte "0">
 				and id = <cfqueryparam value="#arguments.userid#" cfsqltype="cf_sql_integer" >
 			</cfif>
 			<cfif arguments.email gt "">
@@ -60,6 +61,33 @@
 		<cfreturn q>
 		
 	</cffunction>
+	
+	<cffunction name="getUsersWithStatus" returntype="query">
+		<cfset var q = "">
+		
+		<cfquery name="q">
+			select 
+			statuses.id as statusid
+			,statuses.message
+			,statuses.createdat
+			,users.id as userid
+			,users.urlid
+			,users.firstName
+			,users.lastName
+			,users.photo
+			from users
+			left join statuses on statuses.userid = users.id 
+			where statuses.deletedat is null
+			and users.deletedat is null
+			group by users.id
+			order by statuses.createdat desc
+			
+		</cfquery>	
+		
+		<cfreturn q>
+		
+	</cffunction>
+	
 	
 	<cffunction name="insertUser" returntype="numeric">
 		<cfargument name="formstruct" required="true" type="struct">

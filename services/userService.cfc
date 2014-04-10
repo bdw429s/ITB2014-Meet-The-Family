@@ -38,7 +38,7 @@ component displayname="User Service" hint="I look after the User Business Logic"
 		var result = {};
 		var userDAO = new services.userDAO();
 			
-		user = userDAO.getUser( email = arguments.formstruct.email, detail="short" );
+		user = userDAO.getUser( email=arguments.formstruct.email, detail="short" );
 		if ( user.recordcount == 1) {
 			result.status = 500;
 			result.message = "Email address is already taken, please try again.";
@@ -64,7 +64,7 @@ component displayname="User Service" hint="I look after the User Business Logic"
 		
 	}
 	
-	public query function getUser( userid ) {
+	public query function getUser( numeric userid ) {
 		var userDAO = new services.userDAO();
 			
 		user = userDAO.getUser( userid = arguments.userid, detail="full" );
@@ -72,6 +72,13 @@ component displayname="User Service" hint="I look after the User Business Logic"
 		return user;
 	}
 	
+	public query function getUsersWithStatus() {
+		var userDAO = new services.userDAO();
+
+		user = userDAO.getUsersWithStatus();
+		
+		return user;
+	}
 	
 	
 }
