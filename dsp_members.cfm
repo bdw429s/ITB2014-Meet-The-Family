@@ -18,10 +18,11 @@
 <cfloop query="qMembers">
 	<div class="status_holder <cfif qMembers.currentrow mod 2>status_mod</cfif>" >
 		<div class="profile_thumb">
-			<a href="dsp_profile.cfm?userid=#qMembers.userid#" title="#qMembers.firstName# #qMembers.lastName#"><img src="img/profiles/#qMembers.photo#" width="100" border="0" alt="#qMembers.firstName# #qMembers.lastName#'s Profile Photo">
+			<a href="dsp_profile.cfm?userid=#qMembers.userid#" title="#qMembers.firstName# #qMembers.lastName#"><img src="img/profiles/#qMembers.photo#" width="100" border="0" alt="#qMembers.firstName# #qMembers.lastName#'s Profile Photo"></a>
 		</div>
 		<div class="status_message_holder">
 			<div class="status_message">
+				<h3 class="member_name">#qMembers.firstName# #qMembers.lastName#</h3>
 				<b>Last Status:</b><br>
 				#qMembers.message#
 			</div>	

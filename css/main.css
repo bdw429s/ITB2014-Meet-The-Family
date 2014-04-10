@@ -153,6 +153,11 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19174674,endCol
 		padding:20px 20px 20px 0px;
 	}
 	
+	h3.member_name {
+		margin:0px;
+	}
+	
+	
 	.profile_details {
 		float:left;
 		padding-left:20px;
