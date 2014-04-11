@@ -17,6 +17,7 @@ component output="false"
     * 
     * type: mysql
     * host: enterprise.netxn.com
+    * db: whoswho_gp
     * username: whoswho_gp
     * password: coldboxrocks
     * 

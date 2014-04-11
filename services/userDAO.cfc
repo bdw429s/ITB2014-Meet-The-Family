@@ -80,7 +80,7 @@
 			where statuses.deletedat is null
 			and users.deletedat is null
 			group by users.id
-			order by statuses.createdat desc
+			order by statuses.createdat desc, users.lastName asc
 			
 		</cfquery>	
 		
