@@ -7,7 +7,8 @@
 	
 	
 	statusService = new services.statusService();
-	qStatuses = statusService.getStatuses();
+	qStatuses = statusService.getStatuses(session.user.id); //this requires an id I added one
+	
 </cfscript>	
 
 
