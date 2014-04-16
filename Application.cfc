@@ -10,6 +10,7 @@ component output="false"
     this.setClientCookies = "yes";
     this.setDomainCookies = "no";
     this.datasource = "whoswho";
+    this.scanlocations = ['/services', '/config'];
     
     /**
     *
@@ -28,6 +29,10 @@ component output="false"
 	 * @hint The application first starts: the first request for a page is processed or the first CFC method is invoked by an event gateway instance, or a web services or Flash Remoting CFC.
 	 */
 	public boolean function onApplicationStart(){
+				wirebox = createObject("component", "wirebox.system.ioc.Injector").init();
+				wirebox.getBinder().scanLocations( this.scanlocations );
+				wirebox.getInstance('mtfAppSettings');
+				//wirebox = createObject("component", "wirebox.system.ioc.Injector").init(binder="config.wirebox");
 		return true;
 	}
 
@@ -42,7 +47,9 @@ component output="false"
 	 * @hint A request starts
 	 */
 	public boolean function onRequestStart(String targetPage){
-
+		if( ( !structKeyExists(application,'wirebox') || !structKeyExists(application,'appsettings') ) ) {
+			onApplicationStart();
+		}
 		return true;
 	}
 
