@@ -5,10 +5,10 @@
 		location(url="dsp_login.cfm",addtoken="false");		
 	}	
 	
-	userService = new services.userService(); 
+	userService = application.wirebox.getInstance('userService');
 	qUser = userService.getUser(url.userid);
 	
-	statusService = new services.statusService();
+	statusService = application.wirebox.getInstance('statusService');
 	qStatuses = statusService.getStatuses( userid=url.userid );
 	
 </cfscript>	

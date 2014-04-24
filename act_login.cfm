@@ -1,6 +1,6 @@
 <cfscript>
 	
-userService = new services.userService();
+userService = application.wirebox.getInstance('userService');
 userid = userService.checkLogin( form.email, form.password );
 if ( userid > 0 ) {
 	session.user = {};

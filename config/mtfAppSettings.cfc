@@ -1,7 +1,6 @@
 component displayname="Meet the family App Settings" hint="I look after the application settings" output="false"
 {
 		public function init(){
-			application.appsettings = getSettings();
 			return this;
 		}
 
@@ -15,9 +14,7 @@ component displayname="Meet the family App Settings" hint="I look after the appl
 
 
 		public any function onDIComplete() {
-			//application.appsettings = getSettings();
-			//return application.appsettings;
-			return;
+			application.appsettings = getSettings();
 		}
 		
 		

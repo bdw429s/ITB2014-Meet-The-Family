@@ -3,7 +3,7 @@
 		location(url="dsp_login.cfm",addtoken="false");		
 	}	
 
-	statusService = new services.statusService();	
+	statusService = application.wirebox.getInstance('statusService');	
 
 	saveResult = statusService.insert( session.user.id, form );
 	if ( saveResult.status == 200 ){

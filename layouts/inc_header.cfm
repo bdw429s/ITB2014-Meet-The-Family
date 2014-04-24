@@ -51,7 +51,8 @@
           	<li><a href="/">Home</a></li>
             <cfif structKeyExists(session, "user")>
             	<li><a href="dsp_members.cfm">Members</a></li>
-            	<li><a href="dsp_myaccount.cfm">My Account</a></li>
+            	<li><a href="dsp_myaccount.cfm">My Account</a>
+              <li><a href="dsp_wireboxnobinder.cfm">Wirebox No Binder</a></li>
             	<li><a href="act_logout.cfm">Log-out</a></li>
             <cfelse>
             	<li><a href="dsp_login.cfm">Login</a></li>

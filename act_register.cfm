@@ -1,6 +1,6 @@
 <cfscript>
 	
-userService = new services.userService();
+userService = application.wirebox.getInstance('userService');
 saveResult = userService.registerUser( form );
 if ( saveResult.status == 200 ) {
 	session.user = {};

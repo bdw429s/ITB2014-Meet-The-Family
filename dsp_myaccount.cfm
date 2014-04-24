@@ -5,7 +5,7 @@
 		location(url="dsp_login.cfm",addtoken="false");		
 	}	
 	
-	statusService = new services.statusService();
+	statusService = application.wirebox.getInstance('statusService');	
 	qStatuses = statusService.getStatuses( userid = session.user.id );
 	
 </cfscript>	
