@@ -6,7 +6,7 @@ component displayname="Status Service" hint="I look after the Statuses Business 
 	}
 	
 	
-	public query function getStatuses( numeric userid){
+	public query function getStatuses( numeric userid=-1){
 		var statusDAO = new services.statusDAO();
 		
 		return statusDAO.getStatuses( userid = arguments.userid );
