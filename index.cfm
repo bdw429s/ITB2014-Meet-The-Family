@@ -7,7 +7,7 @@
 	
 	
 	statusService = application.wirebox.getInstance('statusService');
-	qStatuses = statusService.getStatuses(session.user.id); //this requires an id I added one
+	qStatuses = statusService.getStatuses(); //no user id gets all statuses, a user id gets just that user
 	
 </cfscript>	
 
