@@ -20,8 +20,11 @@
 		<div class="status_message">
 			<pre style="font-size:1em; font-weight:bold; text-align:left;">
 				wirebox = createObject("component", "wirebox.system.ioc.Injector").init();
+				this.scanlocations = ['/services'];
+				//scan your model folders takes an array can take multiple folders
 				wirebox.getBinder().scanLocations( this.scanlocations );
-				wirebox.getInstance('mtfAppSettings');
+				//call without scanning or mapping
+				wirebox.getInstance('config.mtfAppSettings');
 			</pre>
 		</div>	
 	</div>

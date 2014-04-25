@@ -10,7 +10,7 @@ component output="false"
     this.setClientCookies = "yes";
     this.setDomainCookies = "no";
     this.datasource = "whoswho";
-    this.scanlocations = ['/services', '/config'];
+    this.scanlocations = ['/services'];
     
     /**
     *
@@ -31,7 +31,8 @@ component output="false"
 	public boolean function onApplicationStart(){
 				wirebox = createObject("component", "wirebox.system.ioc.Injector").init();
 				wirebox.getBinder().scanLocations( this.scanlocations );
-				wirebox.getInstance('mtfAppSettings');
+				//call without scanning or mapping
+				wirebox.getInstance('config.mtfAppSettings');
 				//wirebox = createObject("component", "wirebox.system.ioc.Injector").init(binder="config.wirebox");
 		return true;
 	}
