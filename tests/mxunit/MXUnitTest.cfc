@@ -19,9 +19,24 @@ component displayName="MX Unit Tests" extends="testbox.system.testing.BaseSpec"{
           						
      }
 
-     function testStatusService(){
-          $assert.includesWithCase( "hello", "he" );
-          $assert.includesWithCase( [ "Monday", "Tuesday" ] , "Monday" );
+     function testStatusServiceInsert(){
+     	  statusService = new services.statusService();
+     	
+          $assert.throws( function() { 
+          						statusService.insert(  ); 
+          						} );
+          $assert.throws( function() { 
+          						statusService.insert( 1 ); 
+          						} );
+          $assert.throws( function() { 
+          						statusService.insert( 1, {} ); 
+          						} );						
+          $assert.assert( statusService.insert( '' ).status eq 500, "Expect error if userid is empty string os 0" );
+          $assert.assert( statusService.insert( 0 ).status eq 500, "Expect error if userid is empty string os 0" );
+          						
+          $assert.assert( statusService.insert( -1, {message="test"} ).status eq 200, "Expect successif passes correct information" );
+          $assert.typeOf( "struct", statusService.insert( -1, {message="test"} ) );
+          
      }
 
 
