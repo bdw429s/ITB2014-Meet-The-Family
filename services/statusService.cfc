@@ -1,6 +1,6 @@
 component displayname="Status Service" hint="I look after the Statuses Business Logic" output="false"
 {
-	property name="statusDAO" inject="ID:statusDAO" scope="instance";
+	property name="statusDAO" inject;
 
 	public function init(){
 		return this;
@@ -8,7 +8,6 @@ component displayname="Status Service" hint="I look after the Statuses Business 
 	
 	
 	public query function getStatuses( numeric userid=-1){
-		var statusDAO = instance.statusDAO;
 		
 		return statusDAO.getStatuses( userid = arguments.userid );
 			
@@ -17,7 +16,6 @@ component displayname="Status Service" hint="I look after the Statuses Business 
 	
 	public struct function insert( userid, formstruct ) {
 		var result = {};
-		var statusDAO = instance.statusDAO;
 		
 		if ( userid == "" or userid == 0 ){
 			result.status = 500;

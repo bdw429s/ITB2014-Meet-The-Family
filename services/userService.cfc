@@ -1,7 +1,7 @@
 component displayname="User Service" hint="I look after the User Business Logic" output="false"
 {
 	
-	property name="userDAO" inject="ID:userDAO" scope="instance";
+	property name="uDAO" inject="ID:userDAO";
 
 	public function init(){
 			return this;
@@ -18,7 +18,7 @@ component displayname="User Service" hint="I look after the User Business Logic"
 			return 0;
 		}
 		else {
-			var userDAO = instance.userDAO;
+			var userDAO = uDAO;
 			var user = userDAO.getUserByLogin( arguments.email, arguments.password );
 			if ( user.recordcount eq 0) {
 				// no user found with email and password
@@ -38,7 +38,7 @@ component displayname="User Service" hint="I look after the User Business Logic"
 		
 	public struct function registerUser( formstruct ) {
 		var result = {};
-		var userDAO = instance.userDAO;
+		var userDAO = uDAO;
 			
 		user = userDAO.getUser( email=arguments.formstruct.email, detail="short" );
 		if ( user.recordcount == 1) {
@@ -67,7 +67,7 @@ component displayname="User Service" hint="I look after the User Business Logic"
 	}
 	
 	public query function getUser( numeric userid ) {
-		var userDAO = instance.userDAO;
+		var userDAO = uDAO;
 			
 		user = userDAO.getUser( userid = arguments.userid, detail="full" );
 		
@@ -75,7 +75,7 @@ component displayname="User Service" hint="I look after the User Business Logic"
 	}
 	
 	public query function getUsersWithStatus() {
-		var userDAO = instance.userDAO;
+		var userDAO = uDAO;
 
 		user = userDAO.getUsersWithStatus();
 		
