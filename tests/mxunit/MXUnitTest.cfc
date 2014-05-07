@@ -13,7 +13,7 @@ component displayName="MX Unit Tests" extends="testbox.system.testing.BaseSpec"{
           $assert.assert( statusService.getStatuses().recordcount gt 0, "Expect recordcount to be greater than 0" );
           $assert.assert( statusService.getStatuses(999999).recordcount eq 0, "Expect recordcount to be equal to 0" );
           $assert.throws( function() { 
-          						statusService.getStatuses('hello') 
+          						statusService.getStatuses('hello');
           						} );
           						
           						
