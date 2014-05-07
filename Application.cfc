@@ -42,7 +42,7 @@ component output="false"
 	 * @hint A request starts
 	 */
 	public boolean function onRequestStart(String targetPage){
-		if( ( !structKeyExists(application,'wirebox') || !structKeyExists(application,'appsettings') ) ) {
+		if( structKeyExists( url, 'init' ) ) {
 			onApplicationStart();
 		}
 		return true;
