@@ -12,18 +12,7 @@ component output="false"
     this.datasource = "whoswho";
     this.scanlocations = ['/services'];
     
-    /**
-    *
-    * Datasource details
-    * 
-    * type: mysql
-    * host: enterprise.netxn.com
-    * db: whoswho_gp
-    * username: whoswho_gp
-    * password: coldboxrocks
-    * 
-    *
-    */
+
        
 	/**
 	 * @hint The application first starts: the first request for a page is processed or the first CFC method is invoked by an event gateway instance, or a web services or Flash Remoting CFC.
