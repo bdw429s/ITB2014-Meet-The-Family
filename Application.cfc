@@ -24,7 +24,10 @@ component output="false"
 		//call without scanning or mapping
 		wirebox.getInstance( 'config.mtfAppSettings' );
 		//wirebox = createObject("component", "wirebox.system.ioc.Injector").init(binder="config.wirebox");
-						
+
+		// Create CacheBox. It will automatically register itself in the application scope.
+		new cachebox.system.cache.CacheFactory();
+
 		return true;
 	}
 
