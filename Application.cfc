@@ -42,7 +42,10 @@ component output="false"
 	 * @hint A request starts
 	 */
 	public boolean function onRequestStart(String targetPage){
-		if( structKeyExists( url, 'init' ) ) {
+		// automatically pick up changes when we switch branches 
+		if( !structKeyExists( application, 'wirebox' ) 
+			|| !structKeyExists( application, 'appsettings' )
+			|| !structKeyExists( application, 'cachebox' ) ) {
 			onApplicationStart();
 		}
 		return true;
