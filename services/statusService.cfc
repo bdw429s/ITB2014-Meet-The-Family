@@ -1,6 +1,6 @@
 component displayname="Status Service" hint="I look after the Statuses Business Logic" output="false"
 {
-	property name="statusDAO" inject;
+	property name="statusDAO" inject="statusDAO";
 
 	public function init(){
 		return this;
