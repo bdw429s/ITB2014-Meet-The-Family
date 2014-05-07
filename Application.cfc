@@ -18,11 +18,13 @@ component output="false"
 	 * @hint The application first starts: the first request for a page is processed or the first CFC method is invoked by an event gateway instance, or a web services or Flash Remoting CFC.
 	 */
 	public boolean function onApplicationStart(){
-				wirebox = createObject("component", "wirebox.system.ioc.Injector").init();
-				wirebox.getBinder().scanLocations( this.scanlocations );
-				//call without scanning or mapping
-				wirebox.getInstance('config.mtfAppSettings');
-				//wirebox = createObject("component", "wirebox.system.ioc.Injector").init(binder="config.wirebox");
+		
+		wirebox = new wirebox.system.ioc.Injector();
+		wirebox.getBinder().scanLocations( this.scanlocations );
+		//call without scanning or mapping
+		wirebox.getInstance( 'config.mtfAppSettings' );
+		//wirebox = createObject("component", "wirebox.system.ioc.Injector").init(binder="config.wirebox");
+						
 		return true;
 	}
 
