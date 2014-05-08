@@ -29,10 +29,12 @@ component displayname="User Service" hint="I look after the User Business Logic"
 				return 0;
 			}
 			else if ( user.deletedat neq "") {
+				log.warn("#cgi.remote_addr# logged in with a deleted user");
 				// user has been deleted
 				return 0;
 			}
 			else {
+				log.info("#arguments.email# logged in successfully from #cgi.remote_addr#");
 				//login successful
 				return user.id;
 			}
