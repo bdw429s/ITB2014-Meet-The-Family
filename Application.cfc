@@ -1,6 +1,6 @@
 component output="false"
 {
-	
+
 	this.name = "Website_" & cgi.server_name;
  	this.applicationTimeout = createTimeSpan(0,1,0,0);
     this.clientmanagement= "yes";
@@ -11,14 +11,14 @@ component output="false"
     this.setDomainCookies = "no";
     this.datasource = "whoswho";
     this.scanlocations = ['/services'];
-    
 
-       
+
+
 	/**
 	 * @hint The application first starts: the first request for a page is processed or the first CFC method is invoked by an event gateway instance, or a web services or Flash Remoting CFC.
 	 */
 	public boolean function onApplicationStart(){
-		
+
 		wirebox = new wirebox.system.ioc.Injector();
 		wirebox.getBinder().scanLocations( this.scanlocations );
 		//call without scanning or mapping
@@ -28,6 +28,16 @@ component output="false"
 		// Create CacheBox. It will automatically register itself in the application scope.
 		new cachebox.system.cache.CacheFactory();
 
+		// Create a LogBox Config.
+		var logboxConfig = new logbox.system.logging.config.LogBoxConfig();
+		//Adding appenders
+		props = {filePath=expandPath("/logbox/logging/tmp"),autoExpand=false,fileMaxArchives=1,fileMaxSize=3000};
+		logboxConfig.appender(name='MyAsyncFile',class="logbox.system.logging.appenders.AsyncRollingFileAppender",properties=props);
+		logboxConfig.root(levelMin="FATAL", levelMax="INFO", appenders="*");
+
+		//logbox = new logbox.system.logging.LogBox(logboxConfig);
+		wirebox.getLogBox().configure(logboxConfig);
+		application.logbox = wirebox.getLogBox();
 		return true;
 	}
 
@@ -42,10 +52,11 @@ component output="false"
 	 * @hint A request starts
 	 */
 	public boolean function onRequestStart(String targetPage){
-		// automatically pick up changes when we switch branches 
-		if( !structKeyExists( application, 'wirebox' ) 
+		// automatically pick up changes when we switch branches
+		if( !structKeyExists( application, 'wirebox' )
 			|| !structKeyExists( application, 'appsettings' )
-			|| !structKeyExists( application, 'cachebox' ) ) {
+			|| !structKeyExists( application, 'cachebox' )
+			|| !structKeyExists( application, 'logbox' ) ) {
 			onApplicationStart();
 		}
 		return true;
@@ -101,5 +112,5 @@ component output="false"
 
 	}*/
 
-	
+
 }
